@@ -42,8 +42,8 @@ require('./model/EditorArtClub/clublegacy')
 
 
 // -----------------------------------------craftClubModel-----------------------------------------------------
-require('./AllModels/craftClubModel/craftdirector')
 require('./AllModels/craftClubModel/crafteditor')
+require('./AllModels/craftClubModel/craftdirector')
 require('./AllModels/craftClubModel/craftjudge')
 require('./AllModels/craftClubModel/craftprinciple')
 require('./AllModels/craftClubModel/craftuser')
@@ -54,7 +54,15 @@ require('./AllModels/craftClubModel/craftdistrict')
 
 // ----------------------------------------------------------------------------------------------
 
-
+// ------------------------------------------PhotoGraphyModel--------------------------------------
+require('./AllModels/photoGraphy/photodirector')
+require('./AllModels/photoGraphy/photoeditor')
+require('./AllModels/photoGraphy/photojudge')
+require('./AllModels/photoGraphy/photoprinciple')
+require('./AllModels/photoGraphy/photouser')
+require('./AllModels/photoGraphy/photocabinate')
+require('./AllModels/photoGraphy/photo-apply-role')
+require('./AllModels/photoGraphy/photodistrict')
 
 
 
@@ -86,6 +94,16 @@ app.use(require('./routes/AllClubRoutes/CraftClub/role'))
 app.use(require('./routes/AllClubRoutes/CraftClub/role'))
 
 // ----------------------------------------------------------------------------------------------
+
+// -----------------------------------------PhotoGraphyRoute-----------------------------------------------------
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/auth'))
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/activity'))
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/chapter'))
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/club'))
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/compitition'))
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/editor'))
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/role'))
+app.use(require('./routes/AllClubRoutes/PhotoGraphy/role'))
 
 
 
