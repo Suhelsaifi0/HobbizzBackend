@@ -18,7 +18,7 @@ const {Jwt_secret} = require("../../../keys");
 
 
 
-router.post("/PHOTOCABINATE-signup" , (req,res)=> {
+router.post("/photocabinate-signup" , (req,res)=> {
     const {name , password ,email , state , district , school} = req.body;
     const ip = req.headers['cf-connecting-ip'] ||
                 req.headers['x-real-ip'] ||
@@ -37,7 +37,7 @@ router.post("/PHOTOCABINATE-signup" , (req,res)=> {
 
 
         bcryptjs.hash(password , 12).then((hashedPassword) => {
-            const teacher = new CRAFTCABINATE ({
+            const teacher = new PHOTOCABINATE ({
                 name , 
                 email,    
                 password:hashedPassword, //hiding password,
@@ -56,7 +56,7 @@ router.post("/PHOTOCABINATE-signup" , (req,res)=> {
 
 
 
-router.post("/PHOTOCABINATE-signin" , (req , res) => {
+router.post("/photocabinate-signin" , (req , res) => {
     const {email , password} = req.body;
 
     if(!email || !password){
@@ -86,7 +86,7 @@ router.post("/PHOTOCABINATE-signin" , (req , res) => {
 
 
 
-router.post("/PHOTODIRECTOR-signup", async (req, res) => {
+router.post("/photodistrict-signup", async (req, res) => {
   const { name, password, email, state, district, clubName } = req.body;
 
   const ip =
@@ -101,7 +101,7 @@ router.post("/PHOTODIRECTOR-signup", async (req, res) => {
   }
 
   try {
-    const savedUser = await CRAFTDIRECTOR.findOne({
+    const savedUser = await PHOTODIRECTOR.findOne({
       $or: [{ email: email }, { clubName: clubName }]
     });
 
@@ -140,7 +140,7 @@ router.post("/PHOTODIRECTOR-signup", async (req, res) => {
 });
 
 
-router.post("/PHOTODIRECTOR-signin" , (req , res) => {
+router.post("/photodistrict-signin" , (req , res) => {
     const {email , password} = req.body;
 
     if(!email || !password){
@@ -170,7 +170,7 @@ router.post("/PHOTODIRECTOR-signin" , (req , res) => {
 
 
 
-router.post("/PHOTOEDITOR-signup", async (req, res) => {
+router.post("/photoeditor-signup", async (req, res) => {
   const { name, password, email, state, district, clubName } = req.body;
 
   const ip =
@@ -185,7 +185,7 @@ router.post("/PHOTOEDITOR-signup", async (req, res) => {
   }
 
   try {
-    const savedUser = await CRAFTEDITOR.findOne({
+    const savedUser = await PHOTOEDITOR.findOne({
       $or: [{ email: email }, { clubName: clubName }]
     });
 
@@ -225,7 +225,7 @@ router.post("/PHOTOEDITOR-signup", async (req, res) => {
 
 
 
-router.post("/PHOTOEDITOR-signin" , (req , res) => {
+router.post("/photoeditor-signin" , (req , res) => {
     const {email , password} = req.body;
 
     if(!email || !password){
@@ -257,7 +257,7 @@ router.post("/PHOTOEDITOR-signin" , (req , res) => {
 
 
 
-router.post("/PHOTOJUDGE-signup", async (req, res) => {
+router.post("/photojudge-signup", async (req, res) => {
   const { name, password, email, state, district, clubName } = req.body;
 
   const ip =
@@ -272,7 +272,7 @@ router.post("/PHOTOJUDGE-signup", async (req, res) => {
   }
 
   try {
-    const savedUser = await CRAFTJUDGE.findOne({
+    const savedUser = await PHOTOJUDGE.findOne({
       $or: [{ email: email }, { clubName: clubName }]
     });
 
@@ -284,7 +284,7 @@ router.post("/PHOTOJUDGE-signup", async (req, res) => {
 
     const hashedPassword = await bcryptjs.hash(password, 12);
 
-    const director = new CRAFTJUDGE({
+    const director = new PHOTOJUDGE({
       name,
       email,
       password: hashedPassword,
@@ -313,7 +313,7 @@ router.post("/PHOTOJUDGE-signup", async (req, res) => {
 
 
 
-router.post("/PHOTOJUDGE-signin" , (req , res) => {
+router.post("/photojudge-signin" , (req , res) => {
     const {email , password} = req.body;
 
     if(!email || !password){
@@ -343,7 +343,7 @@ router.post("/PHOTOJUDGE-signin" , (req , res) => {
 
 
 
-router.post("/PHOTOPRINCIPLE-signup", async (req, res) => {
+router.post("/photoprinciple-signup", async (req, res) => {
   const { name, password, email, state, district, clubName } = req.body;
 
   const ip =
@@ -358,7 +358,7 @@ router.post("/PHOTOPRINCIPLE-signup", async (req, res) => {
   }
 
   try {
-    const savedUser = await CRAFTPRINCIPLE.findOne({
+    const savedUser = await PHOTOPRINCIPLE.findOne({
       $or: [{ email: email }, { clubName: clubName }]
     });
 
@@ -399,7 +399,7 @@ router.post("/PHOTOPRINCIPLE-signup", async (req, res) => {
 
 
 
-router.post("/PHOTOPRINCIPLE-signin" , (req , res) => {
+router.post("/photoprinciple-signin" , (req , res) => {
     const {email , password} = req.body;
 
     if(!email || !password){
